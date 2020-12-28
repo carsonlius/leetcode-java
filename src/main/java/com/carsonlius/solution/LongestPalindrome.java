@@ -6,7 +6,7 @@ import java.util.TreeMap;
 
 public class LongestPalindrome {
     public static void main(String[] args) {
-      String s = "cbbd";
+      String s = "babad";
       LongestPalindrome longestPalindrome = new LongestPalindrome();
       System.out.println(longestPalindrome.getLongestPalindrome(s));
 
@@ -25,8 +25,9 @@ public class LongestPalindrome {
             // 将回文看成中间的部分全是同一个字符的，左右部分相互对称，找到下一个与当前字符不同的字符
             i = findLongest(str, i, range);
         }
-        System.out.println("range" + range);
-        return s.substring(range.get("left"), range.get("right") -1);
+
+        System.out.println("range" + range + " s:" + s);
+        return s.substring(range.get("left"), range.get("right") + 1);
     }
 
     /**
@@ -46,7 +47,7 @@ public class LongestPalindrome {
 
         // 从中间向左右扩散
         // 左右相等则说明目前还是回文
-        while (begin >0 && str[end - 1] == str[begin -1]  && end < str.length -1) {
+        while (begin >0 && end < str.length -1 && str[end + 1] == str[begin -1]  ) {
             end++;
             begin--;
         }
