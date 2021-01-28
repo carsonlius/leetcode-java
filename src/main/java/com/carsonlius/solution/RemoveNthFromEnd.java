@@ -1,6 +1,5 @@
 package com.carsonlius.solution;
 
-import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
 class ListNode {
     int val;
