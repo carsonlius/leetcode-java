@@ -46,4 +46,23 @@ public class SwapPairs {
         newHead.next = head;
         return newHead;
     }
+
+    public ListNode solution2(ListNode head) {
+        // copy 官解循环
+        ListNode newHead = new ListNode();
+        newHead.next = head;
+        ListNode current = newHead;
+
+        while (current.next != null && current.next.next != null) {
+            ListNode first = current.next;
+            ListNode second = current.next.next;
+            current.next = second;
+            first.next = second.next;
+            second.next = first;
+
+            current = first;
+        }
+
+        return newHead.next;
+    }
 }
