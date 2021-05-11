@@ -27,21 +27,10 @@ public class BinaryTree {
 
         if (data != null) {
             node = new TreeNode(data);
-            System.out.println("=======>" + inputList);
             node.leftChild = createBinaryTree(inputList);
-            System.out.println("---->" + inputList);
             node.rightChild = createBinaryTree(inputList);
         }
         return node;
-    }
-
-    public static void main(String[] args) {
-        LinkedList<Integer> linkedList = new LinkedList<Integer>(Arrays.asList(3, 2, 9,
-                null, null, 10, null, null, 8, null, 4));
-        TreeNode treeNode = createBinaryTree(linkedList);
-        System.out.println("前序遍历");
-        preOrderTraveral(treeNode);
-        System.out.println("后序遍历");
     }
 
     public static void preOrderTraveral(TreeNode node){
@@ -54,6 +43,13 @@ public class BinaryTree {
         preOrderTraveral(node.rightChild);
     }
 
-
+    public static void main(String[] args) {
+        LinkedList<Integer> linkedList = new LinkedList<Integer>(Arrays.asList(3, 2, 9,
+                null, null, 10, null, null, 8, null, 4));
+        TreeNode treeNode = createBinaryTree(linkedList);
+        System.out.println("前序遍历");
+        preOrderTraveral(treeNode);
+        System.out.println("后序遍历");
+    }
 
 }
