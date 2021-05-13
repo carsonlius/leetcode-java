@@ -1,5 +1,6 @@
 package com.carsonlius.solution;
 
+
 /**
  * 31. 下一个排列
  * 实现获取 下一个排列 的函数，算法需要将给定数字序列重新排列成字典序中下一个更大的排列。
@@ -37,13 +38,36 @@ package com.carsonlius.solution;
 
 public class NextPermutation {
     public void solution(int[] nums) {
-        // todo null情况
+        if (nums == null || nums.length ==0) {
+            return;
+        }
 
-        // todo 没有倒序的情况
+        // i<j 寻找较小值i, 倒序第一个nums[i] < nums[j]; 此时i+1--nums.length为降序排列
+        int i = nums.length-1;
+        boolean hasReversal = false;
+        for (i = nums.length - 2; i >= 0; i--) {
+            if (nums[i] < nums[i+1]) {
+                hasReversal = true;
+                break;
+            }
+        }
 
-        // todo 包含倒序的情况
+        if (!hasReversal) {
+            return;
+        }
 
-        // 第一个出现倒序的地方
+        // todo 寻找较大值k 倒序找到第一个nums[i] < nums[k]
+        int k = nums[nums.length-1];
+        for (int i1 = nums.length - 1; i1 >= 0; i1--) {
+            if (nums[i1] < ) {
+
+            }
+
+        }
+
+        // todo 交换i,k
+        // todo i+1 --- nums.length从小到大排序, 因为这部分是降序的，所以通过双指针交换就行了
+
 
     }
 }
