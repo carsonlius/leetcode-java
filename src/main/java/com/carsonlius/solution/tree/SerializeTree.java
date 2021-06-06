@@ -11,7 +11,7 @@ import java.util.Queue;
 public class SerializeTree {
 
     public String serialize(TreeNode head){
-        // todo 通过先序遍历,获取各个节点的数值, 空节点值记录为#,正常节点正常记录，在值后面添加!作为分隔符
+        //  通过先序遍历,获取各个节点的数值, 空节点值记录为#,正常节点正常记录，在值后面添加!作为分隔符
         if (head == null) {
             return "#!";
         }
@@ -48,6 +48,43 @@ public class SerializeTree {
         return node;
     }
 
+    private String serializeByLevel(TreeNode head){
+        // 层次遍历序列化
+        if (head == null) {
+            return "#!";
+        }
+
+        StringBuilder serialString = new StringBuilder(head.data + "!");
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(head);
+        while (!queue.isEmpty()) {
+            TreeNode current = queue.poll();
+            serialString.append(current.data + "!");
+            if (current.left == null) {
+                serialString.append("#!");
+            } else {
+                queue.offer(current.left);
+            }
+
+            if (current.right == null) {
+                serialString.append("#!");
+            } else {
+                queue.offer(current.right);
+            }
+        }
+
+        return serialString.toString();
+    }
+
+    private TreeNode unSerializeByLevel(String serialString){
+        // 转成数组
+        String[] nodes = serialString.split("!");
+
+        // todo 遍历数组
+
+
+
+    }
 
     public static void main(String[] args) {
         TreeNode head = new TreeNode(12);
@@ -58,9 +95,8 @@ public class SerializeTree {
         System.out.println("序列化:" + serializeString);
         TreeNode newHead = serializeTree.unSerialize(serializeString);
 
-        TreePreLoop treePreLoop = new TreePreLoop();
-        treePreLoop.solution(newHead);
-
+        PrintTree printTree = new PrintTree();
+        printTree.solution(head);
 
     }
 }
