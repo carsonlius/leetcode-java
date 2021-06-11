@@ -6,9 +6,9 @@ import java.util.Stack;
  * 先序列遍历
  *
  * */
-public class TreePreLoop <T>{
+public class TreePreLoop {
 
-    public void solution(TreeNode<T> head){
+    public void solution(TreeNode head){
         if (head == null) {
             return;
         }
@@ -18,12 +18,12 @@ public class TreePreLoop <T>{
         solution(head.right);
     }
 
-    public void solution2(TreeNode<T> head){
-        Stack<TreeNode<T>> stack = new Stack<>();
+    public void solution2(TreeNode head){
+        Stack<TreeNode> stack = new Stack<>();
         stack.add(head);
 
         while (!stack.isEmpty()) {
-            TreeNode<T> current = stack.pop();
+            TreeNode current = stack.pop();
             System.out.println(current.data);
             if (current.right != null) {
                 stack.add(current.right);

@@ -1,11 +1,11 @@
 package com.carsonlius.solution.tree;
 
-public class TreeNode<T>{
-    T data;
-    TreeNode<T> left;
-    TreeNode<T> right;
+public class TreeNode{
+    int data;
+    TreeNode left;
+    TreeNode right;
 
-    TreeNode(T data){
+    TreeNode(int data){
         this.data = data;
     }
 }
